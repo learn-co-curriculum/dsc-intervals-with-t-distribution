@@ -108,11 +108,6 @@ As a preview of running further simulations to investigate some of these relatio
 
 
 ```python
-np.random.normal?
-```
-
-
-```python
 sample_chol_levels = np.random.normal(loc=54, scale=17, size=1000)
 ```
 
@@ -124,8 +119,8 @@ print('Sample mean:', x_bar)
 print('Sample standard deviation:', s)
 ```
 
-    Sample mean: 54.9493567912169
-    Sample standard deviation: 17.056165107093424
+    Sample mean: 54.34073433018943
+    Sample standard deviation: 16.822429793416344
 
 
 
@@ -140,7 +135,7 @@ stats.t.interval(alpha = 0.95,                              # Confidence level
 
 
 
-    (21.479336833629844, 88.41937674880396)
+    (21.32938286956194, 87.35208579081691)
 
 
 
