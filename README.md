@@ -13,6 +13,8 @@ You will be able to:
 * Understand and explain the T-Distribution
 * Calculate and interpret confidence intervals
 
+## Let's get started!
+
 As stated above, we are often trying to infer population parameter from a sample. As such, we typically don't know the population variance or standard deviation. To start, it is thus natural to use the standard deviation of our sample as an estimate for the standard deviation of our population.
 
 $S=\sqrt{\dfrac{1}{n-1}\sum\limits_{i=1}^n (X_i-\bar{X})^2}$
