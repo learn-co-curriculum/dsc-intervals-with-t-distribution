@@ -5,7 +5,7 @@
 
 We've started to take a look at confidence intervals, but our example doesn't match what typically happens in practice. That is, when we previously calculated confidence intervals, we assumed we knew the population standard deviation. This is extremely rare, after all, when do you know the population standard deviation but not the population mean? To solve this problem, we use what's known as a T distribution. T distributions are similar to the normal distribution in shape, but have heavier tails. T distributions also have a parameter known as **degrees of freedom**. The higher the degrees of freedom, the closer the distribution resembles that of the normal distribution. Here the normal distribution is pictured in blue with the current t-distribution in red and previous t-distributions (with lower degrees of freedom) in green.
 
-<img src="tdist_df.png">
+<img src="images/tdist_df.png">
 
 ## Objectives
 You will be able to:
