@@ -66,12 +66,14 @@ sample_chol_levels = [66.0, 36.0, 73.0, 48.0, 81.0, 69.0, 75.0, 81.0, 73.0,
                       69.0, 101.0, 70.0, 50.0, 42.0, 36.0, 71.0, 65.0, 43.0, 76.0, 24.0]
 ```
 
-From our sample, we then calculate our sample mean ($\bar{x}$) and our sample standard deviation ($s$).
+From our sample, we then calculate our sample mean ($\bar{x}$) and our sample standard deviation ($s$). 
+
+We pass the parameter `ddof = 1` to `np.std` to make sure we correctly compute the standard deviation of the sample.
 
 
 ```python
 x_bar = np.mean(sample_chol_levels)
-s = np.std(sample_chol_levels, ddof=1)
+s = np.std(sample_chol_levels, ddof = 1)
 print(x_bar, s)
 ```
 
@@ -108,6 +110,8 @@ Note that this confidence interval is particularly wide! In order to achieve a 9
 
 As a preview of running further simulations to investigate some of these relationships, here is a similar dataset, generated at random, and the associated statistical techniques used to estimate the population mean. Note that with the large sample size, the sample point estimates are fairly accurate on their own. Despite this, the confidence interval is still quite large for the population mean. In part, this is due to a large standard deviation.
 
+Note we pass the parameter `ddof = 1` to `np.std` to make sure we correctly compute the standard deviation of the sample.
+
 
 ```python
 sample_chol_levels = np.random.normal(loc=54, scale=17, size=1000)
@@ -116,7 +120,7 @@ sample_chol_levels = np.random.normal(loc=54, scale=17, size=1000)
 
 ```python
 x_bar = np.mean(sample_chol_levels)
-s = np.std(sample_chol_levels, ddof=1)
+s = np.std(sample_chol_levels, ddof = 1)
 print('Sample mean:', x_bar)
 print('Sample standard deviation:', s)
 ```
