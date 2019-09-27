@@ -71,18 +71,18 @@ From our sample, we then calculate our sample mean ($\bar{x}$) and our sample st
 
 ```python
 x_bar = np.mean(sample_chol_levels)
-s = np.std(sample_chol_levels)
+s = np.std(sample_chol_levels, ddof=1)
 print(x_bar, s)
 ```
 
-    62.45 18.72291376896235
+    62.45 19.209304214912432
 
 
 We then calculate our interval estimate using a t-distribution and our various parameters. The t-distribution requires 4 parameters: 
-    * The sample mean
-    * The sample standard deviation
-    * The degrees of freedom (this is 1 less then the number of items in the sample)
-    * The confidence level we wish to have in our estimate
+* The sample mean
+* The sample standard deviation
+* The degrees of freedom (this is 1 less then the number of items in the sample)
+* The confidence level we wish to have in our estimate
 
 
 ```python
@@ -100,11 +100,11 @@ stats.t.interval(alpha = 0.95,                              # Confidence level
 
 
 
-    (23.26249111295013, 101.63750888704988)
+    (22.244464209742247, 102.65553579025776)
 
 
 
-Note that this confidence interval is particularly wide! In order to achieve a 95% confidence level we had to make a very general statement that we believe the average cholestoral level to be between 23 and 101.
+Note that this confidence interval is particularly wide! In order to achieve a 95% confidence level we had to make a very general statement that we believe the average cholestoral level to be between 22 and 102.
 
 As a preview of running further simulations to investigate some of these relationships, here is a similar dataset, generated at random, and the associated statistical techniques used to estimate the population mean. Note that with the large sample size, the sample point estimates are fairly accurate on their own. Despite this, the confidence interval is still quite large for the population mean. In part, this is due to a large standard deviation.
 
@@ -116,13 +116,13 @@ sample_chol_levels = np.random.normal(loc=54, scale=17, size=1000)
 
 ```python
 x_bar = np.mean(sample_chol_levels)
-s = np.std(sample_chol_levels)
+s = np.std(sample_chol_levels, ddof=1)
 print('Sample mean:', x_bar)
 print('Sample standard deviation:', s)
 ```
 
-    Sample mean: 54.34073433018943
-    Sample standard deviation: 16.822429793416344
+    Sample mean: 53.45517815445103
+    Sample standard deviation: 17.484460776839644
 
 
 
@@ -137,7 +137,7 @@ stats.t.interval(alpha = 0.95,                              # Confidence level
 
 
 
-    (21.32938286956194, 87.35208579081691)
+    (19.144695846497058, 87.76566046240501)
 
 
 
