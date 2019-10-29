@@ -10,8 +10,8 @@ We've started to take a look at confidence intervals, but our example doesn't ma
 ## Objectives
 You will be able to:
 
-* Understand and explain the t-Distribution
-* Calculate and interpret confidence intervals
+* Calculate confidence intervals
+* Interpret confidence intervals in relation to true population parameters
 
 ## Let's get started!
 
@@ -19,7 +19,7 @@ As stated above, we are often trying to infer population parameters from a sampl
 
 $S=\sqrt{\dfrac{1}{n-1}\sum\limits_{i=1}^n (X_i-\bar{X})^2}$
 
-So when we go to find our confidence interval as before, our equation,
+So, when we go to find our confidence interval as before, our equation,
 
 $\dfrac{\bar{X}-\mu}{\sigma/\sqrt{n}}\sim N(0,1)$
 
@@ -28,7 +28,6 @@ will become
 $\dfrac{\bar{X}-\mu}{S/\sqrt{n}}$
 
 (substituting S, the sample standard deviation, in for $\sigma$)
-
 
 As a result, our question now becomes how is this quantity distributed?
 
@@ -53,7 +52,7 @@ To review some vocabulary and terms:
 
 Let's try this out in practice.
 
-First, we start with a sample that we'll use to calculate the population mean with a 95% confidence.
+First, we start with a sample of patient cholesterol levels that we'll use to calculate the population mean with a 95% confidence.
 
 
 ```python
