@@ -1,13 +1,13 @@
-
 # Confidence Intervals with T-Distribution
 
 ## Introduction
 
 We've started to take a look at confidence intervals, but our example doesn't match what typically happens in practice. That is, when we previously calculated confidence intervals, we assumed we knew the population standard deviation. This is extremely rare, after all, when do you know the population standard deviation but not the population mean? To solve this problem, we use what's known as a t-distribution. T-distributions are similar to the normal distribution in shape but have heavier tails. T-distributions also have a parameter known as **degrees of freedom**. The higher the degrees of freedom, the closer the distribution resembles that of the normal distribution. Here the normal distribution is pictured in blue with the current t-distribution in red and previous t-distributions (with lower degrees of freedom) in green.
 
-<img src="images/new_tdist_df.png">
+<img src="https://raw.githubusercontent.com/learn-co-curriculum/dsc-intervals-with-t-distribution/master/images/new_tdist_df.png" alt="t-distributions with varying degrees of freedom" />
 
 ## Objectives
+
 You will be able to:
 
 * Calculate confidence intervals
@@ -79,7 +79,8 @@ print(x_bar, s)
     62.45 19.209304214912432
 
 
-We then calculate our interval estimate using a t-distribution and our various parameters. The t-distribution requires 4 parameters: 
+We then calculate our interval estimate using a t-distribution and our various parameters. The t-distribution requires 4 parameters:
+
 * The sample mean
 * The sample standard deviation
 * The degrees of freedom (this is 1 less then the number of items in the sample)
@@ -146,8 +147,8 @@ stats.t.interval(alpha = 0.95,                              # Confidence level
 
 ## Additional Resources
 
-https://onlinecourses.science.psu.edu/stat414/node/199/  
+https://online.stat.psu.edu/statprogram/reviews/statistical-concepts/confidence-intervals
 
 ## Summary
 
-In this lecture, we investigated the more common method for calculating confidence intervals, as we will rarely know the population's standard deviation. As a result, we use the t-distribution, allowing us to find estimates for the population mean even when not knowing any specific parameters concerning the population.
+In this lesson, we investigated the more common method for calculating confidence intervals, as we will rarely know the population's standard deviation. As a result, we use the t-distribution, allowing us to find estimates for the population mean even when not knowing any specific parameters concerning the population.
