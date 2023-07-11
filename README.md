@@ -93,7 +93,7 @@ import scipy.stats as stats
 
 
 ```python
-stats.t.interval(alpha = 0.95,                              # Confidence level
+stats.t.interval(confidence = 0.95,                              # Confidence level
                  df= len(sample_chol_levels)-1,             # Degrees of freedom
                  loc = x_bar,                               # Sample mean
                  scale = s)                                 # Standard deviation estimate
@@ -132,7 +132,7 @@ print('Sample standard deviation:', s)
 
 ```python
 #Min and Max of Confidence Interval
-stats.t.interval(alpha = 0.95,                              # Confidence level
+stats.t.interval(confidence = 0.95,                              # Confidence level
                  df= len(sample_chol_levels)-1,             # Degrees of freedom
                  loc = x_bar,                               # Sample mean
                  scale = s)    
