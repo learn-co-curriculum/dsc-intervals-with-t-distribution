@@ -13,7 +13,7 @@ You will be able to:
 * Calculate confidence intervals
 * Interpret confidence intervals in relation to true population parameters
 
-## Let's get started!
+## Let's get started
 
 As stated above, we are often trying to infer population parameters from a sample. As such, we typically don't know the population variance or standard deviation. To start, it is thus natural to use the standard deviation of our sample as an estimate for the standard deviation of our population.
 
@@ -73,10 +73,11 @@ We pass the parameter `ddof = 1` to `np.std` to make sure we correctly compute t
 ```python
 x_bar = np.mean(sample_chol_levels)
 s = np.std(sample_chol_levels, ddof = 1)
-print(x_bar, s)
+se = s/np.sqrt(len(sample_chol_levels))
+print(x_bar, s, se)
 ```
 
-    62.45 19.209304214912432
+    62.45 19.209304214912432 4.295331002501743
 
 
 We then calculate our interval estimate using a t-distribution and our various parameters. The t-distribution requires 4 parameters:
@@ -93,20 +94,20 @@ import scipy.stats as stats
 
 
 ```python
-stats.t.interval(confidence = 0.95,                              # Confidence level
+stats.t.interval(confidence = 0.95,                         # Confidence level
                  df= len(sample_chol_levels)-1,             # Degrees of freedom
                  loc = x_bar,                               # Sample mean
-                 scale = s)                                 # Standard deviation estimate
+                 scale = se)                                # Estimated standard error of the mean
 ```
 
 
 
 
-    (22.244464209742247, 102.65553579025776)
+    (53.4597688901183, 71.44023110988171)
 
 
 
-Note that this confidence interval is particularly wide! In order to achieve a 95% confidence level, we had to make a very general statement that we believe the average cholesterol level is between 22 and 102.
+Note that this confidence interval is relatively wide. In order to achieve a 95% confidence level, we had to make a very general statement that we believe the average cholesterol level is between 53.5 and 71.4.
 
 As a preview of running further simulations to investigate some of these relationships, here is a similar dataset, generated at random, and the associated statistical techniques used to estimate the population mean. Note that with the large sample size, the sample point estimates are fairly accurate on their own. Despite this, the confidence interval is still quite large for the population mean. In part, this is due to a large standard deviation.
 
@@ -119,35 +120,35 @@ sample_chol_levels = np.random.normal(loc=54, scale=17, size=1000)
 
 
 ```python
+# With the randomized sample, the code is the same as above, but the output will be different.
 x_bar = np.mean(sample_chol_levels)
 s = np.std(sample_chol_levels, ddof = 1)
+se = s/np.sqrt(len(sample_chol_levels))
 print('Sample mean:', x_bar)
 print('Sample standard deviation:', s)
+print('Estimated standard error:', se)
 ```
 
-    Sample mean: 53.45517815445103
-    Sample standard deviation: 17.484460776839644
+    Sample mean: 54.036234500105024
+    Sample standard deviation: 17.06527068326075
+    Estimated standard error: 0.5396512424640184
 
 
 
 ```python
 #Min and Max of Confidence Interval
-stats.t.interval(confidence = 0.95,                              # Confidence level
-                 df= len(sample_chol_levels)-1,             # Degrees of freedom
-                 loc = x_bar,                               # Sample mean
-                 scale = s)    
+stats.t.interval(confidence = 0.95,                              
+                 df= len(sample_chol_levels)-1,             
+                 loc = x_bar,                               
+                 scale = se)    
 ```
 
 
 
 
-    (19.144695846497058, 87.76566046240501)
+    (52.977254492465704, 55.095214507744345)
 
 
-
-## Additional Resources
-
-https://online.stat.psu.edu/statprogram/reviews/statistical-concepts/confidence-intervals
 
 ## Summary
 
